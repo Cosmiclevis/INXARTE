@@ -194,15 +194,15 @@
 body {
     margin: 0;
     font-family: sans-serif;
-    background: url('/Imagess/Mainpage/IMG_1793.jpg') center/cover no-repeat fixed;
+    background: url('Imagess/Mainpage/IMG_1793.jpg') center/cover no-repeat fixed;
     min-height: 100vh;
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    cursor: url('/Imagess/Mainpage/fingercursor.png') 16 16, auto;
+    cursor: url('Imagess/Mainpage/fingercursor.png') 16 16, auto;
 }
 a, button, [role="button"], .news-content:hover, .footer:hover {
-    cursor: url('/Imagess/Mainpage/fingercursor.png') 16 16, pointer;
+    cursor: url('Imagess/Mainpage/fingercursor.png') 16 16, pointer;
 }
 
 /* ========== MEDIA CONTAINERS ========== */
