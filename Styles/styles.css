@@ -1,0 +1,554 @@
+/* Vertically center the media container in the films page grid */
+.main-content-films .media-container {
+    align-self: center;
+}
+/* Vertically center the left and right containers in the 2D page grid */
+.main-content-2d .left-container,
+.main-content-2d .right-container {
+    align-self: center;
+}
+
+/* Ensure all main wrappers fill the viewport for consistent background */
+/* 2D page grid layout */
+.main-content-2d {
+    display: grid;
+    grid-template-columns: 0.7fr 1.15fr 1.15fr;
+    gap: 1vw;
+    align-items: stretch;
+    width: 100vw;
+    height: calc(100vh - 80px);
+    box-sizing: border-box;
+}
+
+
+/* On 2D page, center image and video containers within their grid columns */
+.main-content-2d .left-container #image-container,
+.main-content-2d .right-container #video-container {
+    justify-self: center;
+}
+/* On 2D page, add margin-top to both image and video containers to match logo spacing */
+.main-content-2d .left-container #image-container,
+.main-content-2d .right-container #video-container {
+    margin-top: 2vw;
+}
+/* On 2D page, add margin-top to media container to match logo spacing */
+.main-content-2d .media-container {
+    margin-top: 2vw;
+   
+
+}
+/* On films page, make media fill the container height */
+.main-content-films .media-container img,
+.main-content-films .media-container video {
+    object-fit: contain;
+
+}
+/* ========== ANIMATION BOX POSITIONING ========== */
+/* Animation box: ensure enough space below for buttons */
+/* Animation box: fixed size and position above left buttons */
+/* Animation box: scalable with vw/vh units */
+#animation {
+    position: relative;
+    width: 28vw;
+    height: 28vw;
+    max-width: 500px;
+    max-height: 500px;
+    min-width: 180px;
+    min-height: 180px;
+    margin: 5vh 0 0 -3vw; /* negative left margin for tighter alignment */
+    padding: 0;
+    z-index: 900;
+    display: block;
+    align-self: flex-start; /* flexbox: align left in column */
+}
+.buttons-left {
+    position: fixed;
+    bottom: 95px;
+    left: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+.download-cv-button, .instagram-button, .email-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5f18f8;
+    color: #fff;
+    font-size: 20px;
+    padding: 0;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s, box-shadow 0.2s;
+    text-align: center;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    width: 50px;
+    height: 50px;
+}
+.download-cv-button:hover, .instagram-button:hover, .email-button:hover {
+    background-color: #ef92f5;
+    color: #50f295;
+}
+.hover-text {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    color: #000;
+    background-color: #7fff3a;
+    padding: 5px 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+    white-space: nowrap;
+    z-index: 1001;
+}
+.download-cv-button:hover .hover-text,
+.instagram-button:hover .hover-text,
+.email-button:hover .hover-text {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s, visibility 0s;
+}
+
+/* ========== ARROW CONTAINER RESTORE ========== */
+.buttons-right {
+    position: fixed;
+    bottom: 95px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    gap: 10px;
+}
+
+.arrow a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    background-color: #5f18f8;
+    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 24px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.arrow a:hover {
+    background-color: #ef92f5;
+    color: #50f295;
+}
+.arrow .arrow-text {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    color: #000;
+    background-color: #7fff3a;
+    padding: 5px 10px;
+    border-radius: 50px;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+    z-index: 1001;
+}
+.arrow a:hover .arrow-text {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s, visibility 0s;
+}
+
+@media (max-width: 768px) {
+    .contacts {
+        bottom: 80px;
+        left: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .arrow-container {
+        flex-direction: column;
+        align-items: center;
+        bottom: 80px;
+        right: 10px;
+    }
+    .arrow {
+        margin: 5px 0;
+    }
+    .download-cv-button, .instagram-button, .email-button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* ========== GLOBAL STYLES ========== */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background: url('/Imagess/Mainpage/IMG_1793.jpg') center/cover no-repeat fixed;
+    min-height: 100vh;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    cursor: url('/Imagess/Mainpage/fingercursor.png') 16 16, auto;
+}
+a, button, [role="button"], .news-content:hover, .footer:hover {
+    cursor: url('/Imagess/Mainpage/fingercursor.png') 16 16, pointer;
+}
+
+/* ========== MEDIA CONTAINERS ========== */
+.media-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    margin-top: 3vh;
+}
+.media-container img,
+.media-container video {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 #ef92f5, 0 1.5px 8px 0 #ef92f5;
+    background: transparent;
+    transition: opacity 1.5s ease;
+}
+
+/* ========== PAGE LAYOUTS ========== */
+/* removed invalid/duplicate block */
+.main-content-films {
+    display: grid;
+    grid-template-columns: 2.3fr 0.7fr;
+    gap: 1vw;
+    align-items: stretch;
+    width: 100vw;
+    height: calc(100vh - 80px);
+    box-sizing: border-box;
+}
+.main-content-3d {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    gap: 3vh;
+}
+.main-content-3d .media-container {
+    margin-left: 3vw;
+    margin-right: 3vw;
+    width: 50vw;
+    max-width: 500px;
+}
+
+/* ========== LOGO ========== */
+/* Center all logos except .logo-films vertically and horizontally */
+/* Center all logos except .logo-films and .logo-2d vertically and horizontally */
+.logo, .logo-3d {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 0 5vw 0;
+}
+/* On 2D page, align logo to top and left of grid cell */
+.logo-2d {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 0 2vw 0;
+    align-self: start;
+}
+/* On films page, center logo horizontally but align to top of grid cell */
+.logo-films {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 0 2vw 0;
+    align-self: start;
+    grid-column: 3; 
+    grid-row: 1;
+}
+#logo {
+    animation: spin 6s linear infinite;
+    transform-origin: center center;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+@keyframes spin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+/* Ensure films page fills viewport */
+.left-container img, .right-container img,
+.left-container video, .right-container video {
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 #ef92f5, 0 1.5px 8px 0 #ef92f5;
+}
+
+/* ========== FOOTER ========== */
+
+/* Footer links: pink, no underline */
+.footer a {
+    color: #ef92f5;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.footer a:hover {
+    color: #5f18f8;
+}
+.footer {
+    background: #7fff3a;
+    color: #5f18f8;
+    font-weight: bold;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    margin: 0;
+    border-radius: 0;
+    z-index: 100;
+}
+.footer:hover {
+    background: #ef92f5;
+    color: #50f295;
+}
+
+/* ========== NEWS TICKER ========== */
+.news-ticker {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-left: 5vw;
+}
+.news-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: slide-left 70s linear infinite;
+    font-size: clamp(40px, 4vw, 30px);
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation-delay: 3s;
+}
+
+
+.news-content:hover { animation-play-state: paused; }
+@keyframes slide-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ========== RESPONSIVE ========== */
+/* Smooth opacity transition for image viewer in 2D page */
+#image-viewer,
+#video-viewer {
+    transition: opacity 1.5s;
+}
+
+
+/* Responsive styles - all @media at end */
+@media (max-width: 900px) {
+  body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;      /* full viewport height */
+        margin: 0;
+        /*overflow: hidden;*/
+    }
+
+    /* Main content takes all space above footer */
+    .main-content-2d,
+    .main-content-films,
+    .main-content-3d,
+    .main-content {
+        flex: 1 1 auto;      /* grow to fill remaining space */
+        min-height: 0;       /* ensures footer sticks to bottom */
+        box-sizing: border-box;
+
+    }
+    .left-container{
+        padding-left: 5vw;
+        padding-right: 5vw;
+        height: auto;
+        width: 100%;
+    }
+    
+    /* Footer sticks exactly at the bottom */
+    footer.footer {
+        flex-shrink: 0;
+        height: 80px;         /* same as main page */
+        display: flex;
+        align-items: center;  /* vertically center content */
+        justify-content: center;
+    }
+    #animation {
+        width: 55vw;
+        height: 90vw;
+        max-width: 98vw;
+        max-height: 40vh;
+        min-width: 120px;
+        min-height: 120px;
+        margin: 2vw auto 2vw auto;
+        position: static;
+        display: block;
+    }
+    .main-content{
+                height: calc(100vh - 80px); /* fill viewport minus footer height */
+
+    }
+    .main-content-2d, .main-content-3d, .main-content-films {
+        display: flex;
+        flex-direction: column;
+        gap: 3vw;
+  
+   
+    }
+ 
+    .logo, .logo-2d, .logo-3d, .logo-films,
+    .left-container, .right-container {
+        width: 100vw;
+        margin: 0;
+        padding: 0vw;
+    }
+    .right-container{
+        padding: 0 0 25vh 0 ;
+    }
+   
+
+    #logo {
+        max-width: 70vw;
+        margin-bottom: 5vh;
+    }
+   
+    .main-content-3d .media-container {
+        width: 90vw;
+        max-width: 90vw;
+        margin-left: 0;
+        margin-right: 0;
+    }
+   
+    .buttons-row {
+        position: fixed; /* Fixes the buttons row in place */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 95vw;
+        margin: 0 2.5vw 0 2.5vw;
+        bottom: 13.3vh ; /* Sets a 15vh margin from the bottom of the viewport */
+
+    }
+    
+
+    .logo-films {
+        margin-bottom: 15vh;
+    }
+    .buttons-left {
+        bottom: 80px;
+        left: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        position: static;
+        left: 0;
+        bottom: 0;
+        margin: 0;
+        width: auto;
+    }
+    .buttons-right {
+        flex-direction: column;
+        align-items: flex-start;
+        bottom: 80px;
+        right: 10px;
+        gap: 10px;
+         display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        position: static;
+        bottom: auto;
+        right: auto;
+        margin: 0;
+    }
+  
+    
+    .arrow {
+        margin: 0;
+    }
+ 
+   .page-2d .buttons-right {
+        position: fixed;   /* or relative/fixed depending on your layout */
+        bottom: 13.3vh;            /* adjust as needed */
+        right: 2.5vw;          /* adjust as needed */
+}
+     .page-films  {
+        position: fixed;   /* or relative/fixed depending on your layout */
+        bottom: 13.3vh;            /* adjust as needed */
+        right: 2.5vw;          /* adjust as needed */
+}
+
+    .page-3d  {
+        position: fixed;   /* or relative/fixed depending on your layout */
+        bottom: 13.3vh;            /* adjust as needed */
+        right: 2.5vw;          /* adjust as needed */
+
+    }
+
+
+    .download-cv-button, .instagram-button, .email-button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+
+   
+    .news-content {
+        font-size: clamp(30px, 3vw, 20px);
+    }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.main-content-films .media-container {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+ 
+}
